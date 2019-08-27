@@ -2,7 +2,7 @@
 
 
 ;; User Details
-(setq user-full-name "Ahalya  Prabhakar")
+(setq user-full-name "Ahalya Prabhakar")
 (setq user-mail-address "ahalya.prabhakar@gmail.com")
 
 ;; Package Management
@@ -11,11 +11,20 @@
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+
+; Refresh Package List
 (package-refresh-contents)
+
+; List packages I want
+(setq package-list '(solarized-theme dracula-theme zenburn-theme))
 
 ;; Initialize Packages
 (package-initialize)
 
+; install the missing packages
+(dolist (package package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
 
 ;; Start-up defaults
 ; Initial Start Screen

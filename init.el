@@ -13,7 +13,7 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 
 ; Refresh Package List
-(package-refresh-contents)
+; (package-refresh-contents)
 
 ; List packages I want
 (setq package-list '(solarized-theme dracula-theme zenburn-theme))
@@ -44,7 +44,12 @@
 (load-theme 'dracula t)
 
 (delete-selection-mode t)
-(linum-mode t)
+(global-linum-mode 1)
 (setq indicate-empty-lines t)
 (show-paren-mode t)
 ;(whitespace-mode t)
+
+(require 'org)
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)

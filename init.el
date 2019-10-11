@@ -5,9 +5,11 @@
 (setq user-full-name "Ahalya Prabhakar")
 (setq user-mail-address "ahalya.prabhakar@gmail.com")
 
+(add-to-list 'load-path "~/.emacs.d/my-lisp")
+
 ;; Package Management
 (require 'package)
-
+;; (setq package-check-signature nil)
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
@@ -16,7 +18,8 @@
 ; (package-refresh-contents)
 
 ; List packages I want
-(setq package-list '(solarized-theme dracula-theme zenburn-theme))
+
+(setq package-list '(solarized-theme dracula-theme zenburn-theme auctex))
 
 ;; Initialize Packages
 (package-initialize)
@@ -25,6 +28,7 @@
 (dolist (package package-list)
   (unless (package-installed-p package)
     (package-install package)))
+
 
 ;; Start-up defaults
 ; Initial Start Screen
@@ -53,3 +57,6 @@
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
+
+;; Load additional .el files
+(require 'misc-cmds)

@@ -58,5 +58,50 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
 
+;; Auctex files
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+
+;; Org Config
+(setq org-agenda-custom-commands
+      '(("d" "Upcoming deadlines" agenda "" 
+                ((org-agenda-time-grid nil)
+                 (org-deadline-warning-days 365)        ;; [1]
+                 (org-agenda-entry-types '(:deadline))  ;; [2]
+                 ))
+      ;; other commands go here
+        ))
+
+(add-to-list 'org-agenda-custom-commands
+             '("A" "Agenda; only deadlines"
+               agenda ""
+               ((org-agenda-entry-types '(:deadline)))
+               ))
+(add-to-list 'org-agenda-custom-commands
+      '("D" "Deadlines"
+        tags "DEADLINE>=\"<today>\""))
+
+
 ;; Load additional .el files
 (require 'misc-cmds)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-agenda-files
+   (quote
+    ("~/ahalya/misc_stuff/industry_job_prep.org" "~/ahalya/misc_stuff/academic_job_prep.org" "~/ahalya/work_notes/research_todo.org")))
+ '(package-selected-packages
+   (quote
+    (## org-trello org-agenda-property jedi zenburn-theme solarized-theme gnu-elpa-keyring-update dracula-theme auctex)))
+ '(ring-bell-function (quote ignore))
+ '(show-paren-mode t)
+ '(tool-bar-mode nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+

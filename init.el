@@ -81,6 +81,7 @@
       '("D" "Deadlines"
         tags "DEADLINE>=\"<today>\""))
 
+(setq org-agenda-files (list "~/org-files"))
 
 ;; Load additional .el files
 (require 'misc-cmds)
@@ -89,15 +90,16 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-agenda-files
-   (quote
-    ("~/ahalya/misc_stuff/industry_job_prep.org" "~/ahalya/misc_stuff/academic_job_prep.org" "~/ahalya/work_notes/research_todo.org")))
- '(package-selected-packages
-   (quote
-    (## org-trello org-agenda-property jedi zenburn-theme solarized-theme gnu-elpa-keyring-update dracula-theme auctex)))
- '(ring-bell-function (quote ignore))
- '(show-paren-mode t)
- '(tool-bar-mode nil))
+ ;; '(org-agenda-files
+ ;;   (quote
+ ;;    ("~/ahalya/misc_stuff/industry_job_prep.org" "~/ahalya/misc_stuff/academic_job_prep.org" "~/ahalya/work_notes/research_todo.org")))
+ ;; '(package-selected-packages
+ ;;   (quote
+ ;;    (## org-trello org-agenda-property jedi zenburn-theme solarized-theme gnu-elpa-keyring-update dracula-theme auctex)))
+ ;; '(ring-bell-function (quote ignore))
+ ;; '(show-paren-mode t)
+ ;; '(tool-bar-mode nil)
+ )
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

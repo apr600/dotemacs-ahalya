@@ -5,6 +5,10 @@
 (setq user-full-name "Ahalya Prabhakar")
 (setq user-mail-address "ahalya.prabhakar@gmail.com")
 
+;; Run this with package-list 1 (gnu-elpa-keyring-update) if gpg keys are out of date
+;; (setq package-check-signature nil)
+(setq package-check-signature 'allow-unsigned)
+
 (add-to-list 'load-path "~/.emacs.d/my-lisp")
 
 ;; Package Management
@@ -15,11 +19,12 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 
 ; Refresh Package List
-; (package-refresh-contents)
+;; (package-refresh-contents)
 
 ; List packages I want
+;; (setq package-list '(gnu-elpa-keyring-update))
 
-(setq package-list '(solarized-theme dracula-theme zenburn-theme auctex))
+(setq package-list '(solarized-theme dracula-theme zenburn-theme gnu-elpa-keyring-update auctex))
 
 ;; Initialize Packages
 (package-initialize)
@@ -52,6 +57,8 @@
 (setq indicate-empty-lines t)
 (show-paren-mode t)
 ;(whitespace-mode t)
+
+(setq ring-bell-function 'ignore)
 
 (require 'org)
 (define-key global-map "\C-cl" 'org-store-link)
